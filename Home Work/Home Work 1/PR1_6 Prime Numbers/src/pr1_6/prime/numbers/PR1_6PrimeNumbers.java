@@ -26,7 +26,13 @@ public class PR1_6PrimeNumbers {
         
         int prime = input.nextInt();
         boolean yes = true;
-        for(int i = 2; i < prime; i++){
+        
+        // I do not need to divide any number higher than half of the number given to find the answere
+        int count = prime/2;
+        
+        //982,451,653 is a prime number used for testing
+        
+        for(int i = 2; i < count; i++){
             
         if(prime%i == 0 && i!=1 && i!= prime){
         System.out.println(" This number is not a prime number");
