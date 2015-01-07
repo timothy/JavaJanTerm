@@ -6,7 +6,8 @@
 
 package pr2_3;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -18,7 +19,18 @@ public class PR2_3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       HashMap<String,Gerbil> map = new HashMap<String,Gerbil>();
        
+       map.put("Mikey", new Gerbil(445874));
+       map.put("Brennan", new Gerbil(123456789));
+      // map.get("Mikey").hop();
+       
+       Set<String> keys = map.keySet();
+       
+       for(String key:keys){
+       map.get(key).hop();
+       
+       }
     }
     
 }
