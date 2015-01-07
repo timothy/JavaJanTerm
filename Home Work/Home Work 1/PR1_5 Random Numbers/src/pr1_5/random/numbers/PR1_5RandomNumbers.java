@@ -39,7 +39,7 @@ public class PR1_5RandomNumbers {
        System.out.printf("Random number %d is greater than the second randomly-generated value\n", i);
        }
            else if (list.get(i) == checker){
-       System.out.printf("Random number %d is equel than the second randomly-generated value\n", i);
+       System.out.printf("Random number %d is equal than the second randomly-generated value\n", i);
        }
             
     }
