@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pr2_1;
+package pr2_2;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 /**
  *
  * @author tbradford16
  */
-public class PR2_1 {
+public class PR2_2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // This is PR2_1
-        ArrayList<Gerbil> list = new ArrayList<>();
 
-        Random r = new Random();
+        List gerbs = new ArrayList();
 
-        for (int i = 0; i < 50; i++) {
-            list.add(new Gerbil(r.nextInt(1000)));
+        for (int i = 0; i < 7; i++) {
+            gerbs.add(new Gerbil(i));
         }
-        for (int i = 0; i < 50; i++) {
-            list.get(i).hop();
+
+        Iterator e = gerbs.iterator();
+
+        while (e.hasNext()) {
+            ((Gerbil) e.next()).hop();
         }
     }
 }
