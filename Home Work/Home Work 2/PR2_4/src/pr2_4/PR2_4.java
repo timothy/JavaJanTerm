@@ -17,9 +17,11 @@ public class PR2_4 {
      */
     public static void main(String[] args) {
         
-        CalcPI PI = new CalcPI();
+        CalcPI PI = new CalcPI(Integer.parseInt(args[0]));
         
-        System.out.printf("%f \n", PI.get());
+        //CalcPI PI = new CalcPI(50000000);
+        
+        System.out.printf("%.17g%n \n", PI.get());
         
     }
     

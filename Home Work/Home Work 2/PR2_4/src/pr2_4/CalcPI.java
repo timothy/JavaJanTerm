@@ -5,26 +5,30 @@
  */
 package pr2_4;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author tbradford16
  */
 public class CalcPI {
 
+   
+    
     private double PI;
 
     CalcPI() {
         PI = 4;
-        int three = 3;
+        double three = 3;
         boolean minus = true;
 
         for (int i = 0; i < 200000; i++) {
             if (minus) {
-                this.PI -= (4 / three);
-                minus = true;
-            } else {
-                this.PI += (4 / three);
+                PI -= (4.0 / three);
                 minus = false;
+            } else {
+                PI += (4.0 / three);
+                minus = true;
             }
             three += 2;
         }
@@ -32,7 +36,7 @@ public class CalcPI {
 
     CalcPI(int n) {
         PI = 4;
-        int three = 3;
+        double three = 3;
         boolean minus = true;
 
         for (int i = 0; i < n; i++) {
