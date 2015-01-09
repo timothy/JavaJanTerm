@@ -21,19 +21,23 @@ public class PR2_3 {
     public static void main(String[] args) {
         HashMap<String, Gerbil> map = new HashMap<String, Gerbil>();
 
+  //      Iterator<String> e = map.keySet().iterator();
+
         map.put("Mikey", new Gerbil(445874));
         map.put("Brennan", new Gerbil(123456789));
         map.put("Kyle", new Gerbil(42));
         map.put("Tim", new Gerbil(1));
 
         // map.get("Mikey").hop();
-
         // Iterator starts here!!!
         Set<String> keys = map.keySet();
 
         for (String key : keys) {
             map.get(key).hop();
         }
+//        while (e.hasNext()) {
+//            ((Gerbil) map.get(e.next())).hop();
+//        }
     }
 
 }
