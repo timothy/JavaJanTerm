@@ -18,6 +18,7 @@ public class PR1DateOnly {
     public static void main(String[] args) {
         // TODO code application logic here
 
+//PT: we don't generally define classes inside a function. And mostly classes are defined in their own file.
 class DataOnly {
 
             int i;
