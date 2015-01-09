@@ -4,25 +4,19 @@
  * and open the template in the editor.
  */
 
-package pr2_4;
+package pr2_5;
 
 /**
  *
  * @author tbradford16
  */
-public class PR2_4 {
+public class PR2_5 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-       CalcPI PI = new CalcPI(Integer.parseInt(args[0]));
-        
-        //CalcPI PI = new CalcPI(50000000);
-        
-        System.out.printf("%.17g%n \n", PI.get());
-        
+        // TODO code application logic here
     }
     
 }

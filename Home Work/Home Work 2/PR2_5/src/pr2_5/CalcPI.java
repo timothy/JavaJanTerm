@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pr2_4;
-
-import java.text.DecimalFormat;
+package pr2_5;
 
 /**
  *
@@ -40,16 +38,6 @@ public class CalcPI {
         }
     }
 
-    public void printSeries(int n) {
-        for (int i = 0; i < n; i++) {
-            
-            set(i);
-            
-            System.out.println(ToString());
-        }
-
-    }
-
     public double get() {
         return this.PI;
     }
@@ -57,5 +45,4 @@ public class CalcPI {
     public String ToString() {
         return String.valueOf(get());
     }
-
 }
