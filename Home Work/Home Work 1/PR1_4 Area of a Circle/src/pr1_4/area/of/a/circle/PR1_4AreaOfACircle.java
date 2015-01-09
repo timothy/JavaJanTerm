@@ -16,7 +16,7 @@ public class PR1_4AreaOfACircle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        final double PI = 3.14;
+        final double PI = 3.14; //PT: use java.lang.Math.PI
         
         Scanner input = new Scanner(System.in);
         
