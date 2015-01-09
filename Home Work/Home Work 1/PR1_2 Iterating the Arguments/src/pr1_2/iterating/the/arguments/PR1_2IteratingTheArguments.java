@@ -23,6 +23,7 @@ public class PR1_2IteratingTheArguments {
     /**
      * I have now completed PR_2 and PR_3
      */
+     //PT: Add javadoc comments for foo, also. -2
     public static void foo(String[] args) {
         // Do something here
         System.out.printf("%s likes to go to the %s and have a %s", args[0], args[1], args[2]);
