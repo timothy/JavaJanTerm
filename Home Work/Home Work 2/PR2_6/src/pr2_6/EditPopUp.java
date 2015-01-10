@@ -32,7 +32,7 @@ public class EditPopUp {
         int result = JOptionPane.showConfirmDialog(null, panel, "Add Grade",
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            _ht.setGrade(combo.getName(), courseText.getText(), Double.parseDouble(gradeText.getText()));
+            _ht.setGrade(tim[combo.getSelectedIndex()], courseText.getText(), Double.parseDouble(gradeText.getText()));
         } else {
             System.out.println("Cancelled");
         }

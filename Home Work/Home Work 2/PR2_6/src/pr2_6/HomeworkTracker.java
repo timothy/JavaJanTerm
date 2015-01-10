@@ -15,8 +15,9 @@ import java.util.Set;
  * @author tbradford16
  */
 public class HomeworkTracker extends javax.swing.JFrame {
-    
- public HashMap<String, HWT> Student;
+
+    private HashMap<String, HWT> Student;
+
     /**
      * Creates new form HomeworkTracker
      */
@@ -24,19 +25,16 @@ public class HomeworkTracker extends javax.swing.JFrame {
         initComponents();
         Student = new HashMap<String, HWT>();
     }
-    
+
 //        public HomeworkTracker(String name,String Cname,double grade) {
 //        initComponents();
 //        Student = new HashMap<String, HWT>();
 //        setGrade(name,Cname, grade);
 //    }
+    public void setGrade(String name, String Cname, double grade) {
+        this.Student.get(name).add(Cname, grade);
+    }
 
-    
-
-   public void setGrade(String name,String Cname,double grade){
-   this.Student.get(name).add(Cname, grade);
-   }
-    
     public String[] getStudent() {
         ArrayList<String> list = new ArrayList<String>();
         Set<String> keys = this.Student.keySet();
@@ -142,7 +140,7 @@ public class HomeworkTracker extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        Student.put(Add_Name.getText(), new HWT());
+        this.Student.put(Add_Name.getText(), new HWT());
         mainT.setText(Student.get(Add_Name.getText()).printToScreen());
         Add_Name.setText("");
     }//GEN-LAST:event_addButtonActionPerformed

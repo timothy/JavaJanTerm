@@ -27,7 +27,7 @@ public class HWT {
     private String name;
 
     public HWT() {
-        this.map.put("Course Name:", 4.0);
+        this.map.put("", 4.0);
         keys = map.keySet();
         calc = new Calculations();
         name = "";
