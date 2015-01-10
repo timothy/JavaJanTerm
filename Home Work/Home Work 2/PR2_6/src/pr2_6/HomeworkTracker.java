@@ -5,6 +5,7 @@
  */
 package pr2_6;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -14,28 +15,37 @@ import java.util.Set;
  * @author tbradford16
  */
 public class HomeworkTracker extends javax.swing.JFrame {
-
+    
+ public HashMap<String, HWT> Student;
     /**
      * Creates new form HomeworkTracker
      */
     public HomeworkTracker() {
         initComponents();
+        Student = new HashMap<String, HWT>();
     }
+    
+//        public HomeworkTracker(String name,String Cname,double grade) {
+//        initComponents();
+//        Student = new HashMap<String, HWT>();
+//        setGrade(name,Cname, grade);
+//    }
 
-    private HashMap<String, HWT> Student = new HashMap<String, HWT>();
+    
 
    public void setGrade(String name,String Cname,double grade){
-   Student.get(name).add(Cname, grade);
+   this.Student.get(name).add(Cname, grade);
    }
     
     public String[] getStudent() {
         ArrayList<String> list = new ArrayList<String>();
-        Set<String> keys = Student.keySet();
+        Set<String> keys = this.Student.keySet();
 
         String[] s = new String[keys.size()];
         int i = -1;
         for (String key : keys) {
             s[i + 1] = key;
+            i++;
         }
         return s;
     }
@@ -82,6 +92,11 @@ public class HomeworkTracker extends javax.swing.JFrame {
         findStudent.setToolTipText("Students name goes here ^_^");
 
         edit_info_button.setText("Edit Info");
+        edit_info_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_info_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,8 +133,8 @@ public class HomeworkTracker extends javax.swing.JFrame {
                     .addComponent(findStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edit_info_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -135,6 +150,19 @@ public class HomeworkTracker extends javax.swing.JFrame {
     private void findSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findSButtonActionPerformed
         mainT.setText(Student.get(findStudent.getText()).printToScreen());
     }//GEN-LAST:event_findSButtonActionPerformed
+
+    private void edit_info_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_info_buttonActionPerformed
+        // TODO add your handling code here: 
+        EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                EditPopUp.setHomeworkTracker(HomeworkTracker.this);
+                EditPopUp.display(getStudent());
+            }
+        });
+
+    }//GEN-LAST:event_edit_info_buttonActionPerformed
 
     /**
      * @param args the command line arguments

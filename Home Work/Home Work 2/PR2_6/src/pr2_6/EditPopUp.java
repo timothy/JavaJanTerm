@@ -13,11 +13,14 @@ import javax.swing.*;
  * @author tbradford16
  */
 public class EditPopUp {
+    private static HomeworkTracker _ht;
     
-    private static void EditPopUp() {
-        HomeworkTracker hw = new HomeworkTracker();
-        
-        JComboBox combo = new JComboBox(hw.getStudent());
+    public static void setHomeworkTracker(HomeworkTracker ht) {
+        _ht = ht;
+    }
+    public static void display(String[] tim) {
+        //String[] tim = _ht.getStudent();
+        JComboBox combo = new JComboBox(tim);
         JTextField courseText = new JTextField("CS171");
         JTextField gradeText = new JTextField("4.0");
         JPanel panel = new JPanel(new GridLayout(0, 1));
@@ -29,7 +32,7 @@ public class EditPopUp {
         int result = JOptionPane.showConfirmDialog(null, panel, "Add Grade",
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            hw.setGrade(combo.getName(), courseText.getText(), Double.parseDouble(gradeText.getText()));
+            _ht.setGrade(combo.getName(), courseText.getText(), Double.parseDouble(gradeText.getText()));
         } else {
             System.out.println("Cancelled");
         }
