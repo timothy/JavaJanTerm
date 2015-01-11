@@ -18,19 +18,28 @@ public class Calculations {
 //    }
 
     public double min(ArrayList<Double> l) {
-        return l.indexOf(Collections.min(l));
+        double min = Double.MAX_VALUE;
+        for (double d : l) 
+            if(min > d) min = d;
+        
+        return min;
     }
 
     public double avg(ArrayList<Double> l) {
         double sum = 0;
-
-        for (double d : l) {
+        
+        for (double d : l) 
             sum += d;
-        }
+        
         return (Double) (sum / l.size());
     }
 
     public double max(ArrayList<Double> l) {
-        return l.indexOf(Collections.max(l));
+                double max = -1;
+        for (double d : l) 
+            if(max < d) max = d;
+        
+        return max;
+       
     }
 }

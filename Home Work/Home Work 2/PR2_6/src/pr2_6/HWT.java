@@ -26,17 +26,17 @@ public class HWT {
     private Set<String> keys;
     private String name;
 
-    public HWT() {
-        this.map.put("", 4.0);
-        keys = map.keySet();
-        calc = new Calculations();
-        name = "";
+    public HWT(String name) {
+        this.map.put("Example CS171 ", 0.0);
+        this.keys = map.keySet();
+        this.calc = new Calculations();
+        this.name = name;
     }
 
     public HWT(String name, String course, double d) {
         this.map.put(course, d);
-        keys = map.keySet();
-        calc = new Calculations();
+        this.keys = map.keySet();
+        this.calc = new Calculations();
         this.name = name;
     }
 
@@ -49,55 +49,55 @@ public class HWT {
     }
 
     public void add(String course, double HW_score) {
-        map.put(course, HW_score);
+        this.map.put(course, HW_score);
     }
 
     public ArrayList<Double> getScoresList() {
-        for (String key : keys) {
-            list.add(map.get(key));
+        for (String key : this.keys) {
+            this.list.add(this.map.get(key));
         }
-        return list;
+        return this.list;
     }
 
     public String PrintScoresList() {
         String list = "";
-        for (String key : keys) {
+        for (String key : this.keys) {
             list += key + " ";
-            list += map.get(key) + "\n";
+            list += this.map.get(key) + "\n";
         }
         return list;
     }
 
     public double getScore(String course) {
-        return map.get(course);
+        return this.map.get(course);
     }
 
     public String getScoreS(String course) {
-        return String.valueOf(map.get(course));
+        return String.valueOf(this.map.get(course));
     }
 
     public String avgS() {
-        return String.valueOf(calc.avg(getScoresList()));
+        return String.valueOf(this.calc.avg(getScoresList()));
     }
 
     public String minS() {
-        return String.valueOf(calc.min(getScoresList()));
+        return String.valueOf(this.calc.min(getScoresList()));
     }
 
     public String maxS() {
-        return String.valueOf(calc.max(getScoresList()));
+        return String.valueOf(this.calc.max(getScoresList()));
     }
 
     public double avg() {
-        return calc.avg(getScoresList());
+        return this.calc.avg(getScoresList());
     }
 
     public double min() {
-        return calc.min(getScoresList());
+        return this.calc.min(getScoresList());
     }
 
     public double max() {
-        return calc.max(getScoresList());
+        return this.calc.max(getScoresList());
     }
     
     public String printToScreen(){    

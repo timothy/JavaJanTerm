@@ -140,7 +140,7 @@ public class HomeworkTracker extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        this.Student.put(Add_Name.getText(), new HWT());
+        this.Student.put(Add_Name.getText(), new HWT(Add_Name.getText()));
         mainT.setText(Student.get(Add_Name.getText()).printToScreen());
         Add_Name.setText("");
     }//GEN-LAST:event_addButtonActionPerformed
