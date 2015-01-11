@@ -62,8 +62,8 @@ public class HomeworkTracker extends javax.swing.JFrame {
         mainT = new javax.swing.JTextArea();
         Add_Name = new javax.swing.JTextField();
         findSButton = new javax.swing.JButton();
-        findStudent = new javax.swing.JTextField();
         edit_info_button = new javax.swing.JButton();
+        CB1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +87,6 @@ public class HomeworkTracker extends javax.swing.JFrame {
             }
         });
 
-        findStudent.setToolTipText("Students name goes here ^_^");
-
         edit_info_button.setText("Edit Info");
         edit_info_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,20 +101,17 @@ public class HomeworkTracker extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(edit_info_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Add_Name))
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(findSButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(findStudent)))
+                        .addComponent(CB1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(edit_info_button)
-                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,10 +123,10 @@ public class HomeworkTracker extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(findSButton)
-                    .addComponent(findStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_info_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(edit_info_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -142,11 +137,13 @@ public class HomeworkTracker extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         this.Student.put(Add_Name.getText(), new HWT(Add_Name.getText()));
         mainT.setText(Student.get(Add_Name.getText()).printToScreen());
+        CB1.addItem(Add_Name.getText().toString());
         Add_Name.setText("");
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void findSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findSButtonActionPerformed
-        mainT.setText(Student.get(findStudent.getText()).printToScreen());
+       // mainT.setText(Student.get(findStudent.getText()).printToScreen());
+        mainT.setText(Student.get(getStudent()[CB1.getSelectedIndex()]).printToScreen());
     }//GEN-LAST:event_findSButtonActionPerformed
 
     private void edit_info_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_info_buttonActionPerformed
@@ -199,10 +196,10 @@ public class HomeworkTracker extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Add_Name;
+    private javax.swing.JComboBox CB1;
     private javax.swing.JButton addButton;
     private javax.swing.JButton edit_info_button;
     private javax.swing.JButton findSButton;
-    private javax.swing.JTextField findStudent;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea mainT;
     // End of variables declaration//GEN-END:variables
