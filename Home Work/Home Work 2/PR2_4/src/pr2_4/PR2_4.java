@@ -16,7 +16,7 @@ public class PR2_4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        //Need to check that args.length > 0. -2
        CalcPI PI = new CalcPI(Integer.parseInt(args[0]));
         
         //CalcPI PI = new CalcPI(50000000);

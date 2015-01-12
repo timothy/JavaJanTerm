@@ -23,12 +23,15 @@ public class CalcPI {
         set(n);
     }
 
+    //PT - need javadocs for functions. -2
     public void set(int n) {
         PI = 4;
         double three = 3;
         boolean minus = true;
 
         for (int i = 0; i < n; i++) {
+            //PT - could you get rid of the if/else?
+            //   hint: -1^n is 1 if n is even, -1 if n is odd
             if (minus) {
                 this.PI -= (4 / three);
                 minus = false;

@@ -23,6 +23,7 @@ public class HWT {
     private Calculations calc;
     private ArrayList list = new ArrayList();
     private HashMap<String, Double> map = new HashMap<String, Double>();
+    //PT - Why do you need this?
     private Set<String> keys;
     private String name;
 

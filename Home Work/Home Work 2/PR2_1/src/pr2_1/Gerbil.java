@@ -12,7 +12,7 @@ package pr2_1;
 public class Gerbil {
 
     private int gerbilNumber;
-
+//PT - javadoc comments needed on functions. -2
     public Gerbil(int gerbNum) {
         this.gerbilNumber = gerbNum;
     }

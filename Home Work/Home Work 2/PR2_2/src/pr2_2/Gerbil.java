@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package pr2_2;
-
+//PT - don't copy/paste classes. import this one from PR2_1. -2
 /**
  *
  * @author tbradford16
