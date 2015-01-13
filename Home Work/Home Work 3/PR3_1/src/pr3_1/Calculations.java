@@ -6,7 +6,8 @@
 package pr3_1;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Iterator;
+
 
 /**
  *
@@ -41,12 +42,14 @@ public class Calculations {
         
         return (int) (sum / l.size());
     }
-    
+    // wanted to test out the iterator on avgD
     public double avgD(ArrayList<Double> l) {
         double sum = 0;
         
-        for (double d : l) 
+        for (Iterator<Double> it = l.iterator(); it.hasNext();) { 
+            double d = it.next();
             sum += d;
+        }
         
         return (Double) (sum / l.size());
     }

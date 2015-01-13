@@ -8,12 +8,14 @@ package pr3_1;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.regex.*;
+
+
 /**
  *
  * @author tbradford16
  */
 public class PR3_1 {
+
     /**
      * @param args the command line arguments
      */
