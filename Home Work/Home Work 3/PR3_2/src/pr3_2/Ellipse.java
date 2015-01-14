@@ -36,7 +36,7 @@ public class Ellipse extends Shape {
                 this.B = r2;
             }
         } catch (EllipseException ex) {
-            System.out.println("Both A and B must be greater than or eqaul 0");
+            System.out.println("Both A and B must be greater than or eqaul 0 to form an Ellipse\n");
         }
     }
     // used Approximation 2 from http://www.mathsisfun.com/geometry/ellipse-perimeter.html for perimeter

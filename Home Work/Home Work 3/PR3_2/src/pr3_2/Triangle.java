@@ -23,9 +23,9 @@ class TriangleException extends Exception {
 
 public class Triangle extends Shape {
 
-    int A;
-    int B;
-    int C;
+    private int A;
+    private int B;
+    private int C;
 
     // This takes the Triangle Inequality Theorem into account
     public Triangle(int s1, int s2, int s3) {
@@ -38,7 +38,8 @@ public class Triangle extends Shape {
                 this.C = s3;
             }
         } catch (TriangleException ex) {
-            System.out.println("All three sides must be greater than or eqaul 0");
+            System.out.println("All three sides must be greater than or eqaul 0 \n"
+                    + "and A cannot be greater than B + C to form a Triangle\n");
         }
     }
 
@@ -46,7 +47,7 @@ public class Triangle extends Shape {
     public double getArea() {
         int s = (this.A + this.B + this.C) / 2;
 
-        return (double) s * ((s - this.A) * (s - this.B) * (s - this.C));
+        return (double) s * (s - this.A) * (s - this.B) * (s - this.C);
     }
 
     @Override

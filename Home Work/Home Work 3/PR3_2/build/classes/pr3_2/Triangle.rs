@@ -1,2 +1,0 @@
-pr3_2.TriangleException
-pr3_2.Triangle

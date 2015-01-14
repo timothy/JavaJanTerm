@@ -35,7 +35,7 @@ public class Rectangle extends Shape {
                 this.height = height;
             }
         } catch (RectangleException ex) {
-            System.out.println("Both height and width need to be greater than or eqaul 0");
+            System.out.println("Both height and width need to be greater than or eqaul 0 to form a Rectangle\n");
         }
 
     }
