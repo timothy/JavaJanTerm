@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 public class ReadWrite {
 
     private File f;
+    private Boolean bool = false;
 
     ReadWrite() {
         f = new File("c:\\users\\pete\\documents\\mover.scr");
@@ -65,18 +66,24 @@ public class ReadWrite {
 
     void write(Event e) {
         try {
-            BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, true));
-            wrtr.write("name:->" + e.getName() + "\nLoc:->" + e.getLocation()
-                    + "\nM:->" + String.valueOf(e.getMonth()) + "\nD:->" + String.valueOf(e.getDate())
-                    + "\nY:->" + String.valueOf(e.getYear()) + "\n");
+            BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, this.bool));
+            wrtr.write("name:->" + e.getName() + "exit*^@"
+                    + "\nLoc:->" + e.getLocation() + "exit*^@"
+                    + "\nM:->" + String.valueOf(e.getMonth()) + "exit*^@"
+                    + "\nD:->" + String.valueOf(e.getDate()) + "exit*^@"
+                    + "\nY:->" + String.valueOf(e.getYear()) + "exit*^@" + "\n");
             wrtr.close();
         } catch (Exception ex) {
             popup("Writing error");
         }
     }
-    
+
     void popup(String pop) {
         JFrame frame = new JFrame("");
         JOptionPane.showMessageDialog(frame, pop);
+    }
+
+    void append(Boolean b) {
+        this.bool = b;
     }
 }
