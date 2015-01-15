@@ -33,7 +33,10 @@ public class ReadWrite {
     ReadWrite(String s) {
         f = new File(s);
     }
-
+/**
+ * 
+ * @return this will return the entire text file as a string
+ */
     String read() {
         String s = "";
         try {
@@ -52,7 +55,7 @@ public class ReadWrite {
 
     /**
      *
-     * @param texted to be stored
+     * @param write is the text that you want to be added to the text file
      */
     void write(String write) {
         try {
@@ -63,26 +66,35 @@ public class ReadWrite {
             popup("Writing error");
         }
     }
-
+/**
+ * 
+ * @param e pass in any Event object and it will be stored in the text document in the correct format
+ */
     void write(Event e) {
         try {
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, this.bool));
-            wrtr.write("name:->" + e.getName() + "exit*^@"
-                    + "\nLoc:->" + e.getLocation() + "exit*^@"
-                    + "\nM:->" + String.valueOf(e.getMonth()) + "exit*^@"
-                    + "\nD:->" + String.valueOf(e.getDate()) + "exit*^@"
-                    + "\nY:->" + String.valueOf(e.getYear()) + "exit*^@" + "\n");
+            wrtr.write("name:->" + e.getName() + "exit@"
+                    + "\nLoc:->" + e.getLocation() + "exit@"
+                    + "\nM:->" + String.valueOf(e.getMonth()) + "exit@"
+                    + "\nD:->" + String.valueOf(e.getDay()) + "exit@"
+                    + "\nY:->" + String.valueOf(e.getYear()) + "exit@" + "\n");
             wrtr.close();
         } catch (Exception ex) {
             popup("Writing error");
         }
     }
-
+/**
+ * 
+ * @param pop is the string that will show up in a pop up window when the method is called
+ */
     void popup(String pop) {
         JFrame frame = new JFrame("");
         JOptionPane.showMessageDialog(frame, pop);
     }
-
+/**
+ * 
+ * @param b set the write function to either append on the end of the text doc or rewrite the whole thing
+ */
     void append(Boolean b) {
         this.bool = b;
     }

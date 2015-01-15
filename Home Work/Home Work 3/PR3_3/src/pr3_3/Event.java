@@ -22,7 +22,14 @@ public class Event {
 
     Event() {
     }
-
+/**
+ * 
+ * @param n The name of the event
+ * @param l The location of the event
+ * @param m The month of the event. this string will be parsed into an integer
+ * @param d the Day of the event. this string will be parsed into an integer
+ * @param y  the year of the event. this string will be parsed into an integer
+ */
     Event(String n, String l, String m, String d, String y) {
         this.name = n;
         this.location = l;
@@ -39,43 +46,73 @@ public class Event {
             this.year = 0;
         }
     }
-
+/**
+ * 
+ * @return returns the Name
+ */
     String getName() {
         return this.name;
     }
-
+/**
+ * 
+ * @return returns the Location
+ */
     String getLocation() {
         return this.location;
     }
-
+/**
+ * 
+ * @return returns the Month
+ */
     int getMonth() {
         return this.month;
     }
-
-    int getDate() {
+/**
+ * 
+ * @return returns the Day
+ */
+    int getDay() {
         return this.day;
     }
-
+/**
+ * 
+ * @return returns the Year
+ */
     int getYear() {
         return this.year;
     }
-
+/**
+ * 
+ * @param s sets the Name
+ */
     void setName(String s) {
         this.name = s;
     }
-
+/**
+ * 
+ * @param s sets the Location
+ */
     void setLocation(String s) {
         this.location = s;
     }
-
+/**
+ * 
+ * @param s sets the Month
+ */
     void setMonth(int s) {
         this.month = s;
     }
-
-    void setDate(int i) {
+/**
+ * 
+ * @param i sets the day
+ */
+    void setDay(int i) {
         this.day = i;
     }
-
+/**
+ * 
+ * @param i sets the Year
+ */
     void setYear(int i) {
         this.year = i;
     }

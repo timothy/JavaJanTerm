@@ -41,6 +41,9 @@ public class Calendars extends javax.swing.JFrame {
 
     }
 
+    /**
+     * @param this takes a KeyEvent and will only allow a KeyEvents that are a digit, Backspace, or delete key
+     */
     void intOnly(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || c == KeyEvent.VK_DELETE)) {
@@ -49,6 +52,13 @@ public class Calendars extends javax.swing.JFrame {
         }
     }
 
+  /**
+   * 
+   * @param d is the day of the month
+   * @param m is the month expressed as a number
+   * @param y year
+   * @return returns true if the d + m + y make a valid date format
+   */ 
     public Boolean checkDate(String d, String m, String y) {
         try {
             df.setLenient(false);
@@ -58,7 +68,9 @@ public class Calendars extends javax.swing.JFrame {
             return false;
         }
     }
-
+/**
+ * @see upDate will up date the text file with 
+ */
     public void upDate() {
         Matcher m = p.matcher(RW.read());
         while (m.find()) {
@@ -262,7 +274,7 @@ public class Calendars extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addeventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addeventActionPerformed
-     upDate();
+        upDate();
         //  N_TF.setText(RW.read());
         if (checkDate(D_TF.getText(), M_TF.getText(), Y_TF.getText())) {
 
@@ -276,15 +288,27 @@ public class Calendars extends javax.swing.JFrame {
             RW.popup("Please enter a valid date");
         }
     }//GEN-LAST:event_addeventActionPerformed
-// I did this becuas I only want int in my text field
+/**
+ * 
+ * @param evt is what the user tries to put in the text box. when passed to intOnly()
+ *            only integers are aloud to be put into the text box
+ */
     private void M_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_M_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_M_TFKeyTyped
-
+/**
+ * 
+ * @param evt is what the user tries to put in the text box. when passed to intOnly()
+ *            only integers are aloud to be put into the text box
+ */
     private void D_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_D_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_D_TFKeyTyped
-
+/**
+ * 
+ * @param evt is what the user tries to put in the text box. when passed to intOnly()
+ *            only integers are aloud to be put into the text box
+ */
     private void Y_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Y_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_Y_TFKeyTyped
