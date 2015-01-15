@@ -14,10 +14,17 @@ import javax.swing.*;
  */
 public class EditPopUp {
     private static HomeworkTracker _ht;
-    
+    /**
+     * 
+     * @param ht this is the root home work tracker
+     */
     public static void setHomeworkTracker(HomeworkTracker ht) {
         _ht = ht;
     }
+    /**
+     * 
+     * @param tim this is an array of strings to populate the combo box with 
+     */
     public static void display(String[] tim) {
         //String[] tim = _ht.getStudent();
         JComboBox combo = new JComboBox(tim);

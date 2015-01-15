@@ -16,7 +16,11 @@ public class Calculations {
 
 //    public Calculations() {
 //    }
-
+/**
+ * 
+ * @param l this is a list of scores
+ * @return the min out of the list it is given
+ */
     public double min(ArrayList<Double> l) {
         double min = Double.MAX_VALUE;
         for (double d : l) 
@@ -24,7 +28,11 @@ public class Calculations {
         
         return min;
     }
-
+/**
+ * 
+ * @param l this is a list of scores
+ * @return returns the average of the list of doubles it was given
+ */
     public double avg(ArrayList<Double> l) {
         double sum = 0;
         
@@ -33,7 +41,11 @@ public class Calculations {
         
         return (Double) (sum / l.size());
     }
-
+/**
+ * 
+ * @param l a list of course scores
+ * @return returns the max score out of the list of scores
+ */
     public double max(ArrayList<Double> l) {
                 double max = -1;
         for (double d : l) 

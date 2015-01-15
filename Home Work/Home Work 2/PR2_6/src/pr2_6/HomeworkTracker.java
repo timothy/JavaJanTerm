@@ -31,10 +31,19 @@ public class HomeworkTracker extends javax.swing.JFrame {
 //        Student = new HashMap<String, HWT>();
 //        setGrade(name,Cname, grade);
 //    }
+    /**
+     * 
+     * @param name Student This is the Key for my HashMap that contains HWT objects
+     * @param Cname course Name added into HWT object
+     * @param grade grade added into HWT object
+     */
     public void setGrade(String name, String Cname, double grade) {
         this.Student.get(name).add(Cname, grade);
     }
-
+/**
+ * 
+ * @return this will return a string array of all HashMap keys
+ */
     public String[] getStudent() {
         ArrayList<String> list = new ArrayList<String>();
         Set<String> keys = this.Student.keySet();

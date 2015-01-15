@@ -20,7 +20,10 @@ public class CalcPI {
     CalcPI(int n) {
         set(n);
     }
-
+/**
+ * 
+ * @param n takes 
+ */
     public void set(int n) {
         PI = 4;
         double three = 3;
