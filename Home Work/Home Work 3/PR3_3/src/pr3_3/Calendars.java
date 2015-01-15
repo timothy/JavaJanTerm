@@ -29,11 +29,11 @@ public class Calendars extends javax.swing.JFrame {
     final static String DATE_FORMAT = "dd-MM-yyyy";
     private DateFormat df;
 
-    private Pattern p = Pattern.compile("name:->(.*)exit*^@");
-//    private Pattern locP = Pattern.compile("\nLoc:->(.*)exit*^@");
-//    private Pattern monthP = Pattern.compile("\nM:->(.*)exit*^@");
-//    private Pattern dayP = Pattern.compile("\nD:->(.*)exit*^@");
-//    private Pattern yearP = Pattern.compile("\nY:->(.*)exit*^@");
+    private Pattern p = Pattern.compile("name:->(.*)exit@");
+//    private Pattern locP = Pattern.compile("\nLoc:->(.*)exit@");
+//    private Pattern monthP = Pattern.compile("\nM:->(.*)exit@");
+//    private Pattern dayP = Pattern.compile("\nD:->(.*)exit@");
+//    private Pattern yearP = Pattern.compile("\nY:->(.*)exit@");
 
     public Calendars() {
         initComponents();

@@ -23,9 +23,8 @@ public class SalesGUI extends javax.swing.JFrame {
     }
 
     private void groupButton() {
-
         ButtonGroup bg1 = new ButtonGroup();
-
+        
         bg1.add(TM_RB);
         bg1.add(S_RB);
         bg1.add(CC_RB);

@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package pr3_3;
+package test;
 
 /**
  *
  * @author tbradford16
  */
-public class PR3_3 {
+public class Test {
 
     /**
      * @param args the command line arguments
