@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Calendars extends javax.swing.JFrame {
      */
     // private Calendar cal = Calendar.getInstance();
     private ArrayList<Event> list = new ArrayList<Event>();
+
     private ReadWrite RW = new ReadWrite("C:\\Users\\tbradford16\\Desktop\\tim.txt");
     final static String DATE_FORMAT = "dd-MM-yyyy";
     private DateFormat df;
@@ -38,11 +40,12 @@ public class Calendars extends javax.swing.JFrame {
     public Calendars() {
         initComponents();
         df = new SimpleDateFormat(this.DATE_FORMAT);
-
+        Table.setAutoCreateRowSorter(true);
     }
 
     /**
-     * @param this takes a KeyEvent and will only allow a KeyEvents that are a digit, Backspace, or delete key
+     * @param this takes a KeyEvent and will only allow a KeyEvents that are a
+     * digit, Backspace, or delete key
      */
     void intOnly(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -52,13 +55,13 @@ public class Calendars extends javax.swing.JFrame {
         }
     }
 
-  /**
-   * 
-   * @param d is the day of the month
-   * @param m is the month expressed as a number
-   * @param y year
-   * @return returns true if the d + m + y make a valid date format
-   */ 
+    /**
+     *
+     * @param d is the day of the month
+     * @param m is the month expressed as a number
+     * @param y year
+     * @return returns true if the d + m + y make a valid date format
+     */
     public Boolean checkDate(String d, String m, String y) {
         try {
             df.setLenient(false);
@@ -68,13 +71,64 @@ public class Calendars extends javax.swing.JFrame {
             return false;
         }
     }
-/**
- * @see upDate will up date the text file with 
- */
+
+    /**
+     * @see upDate will up date the table to show all current events stored on
+     * the text file. it will add new rows to the table as needed
+     */
     public void upDate() {
+        ArrayList<String> na = new ArrayList<>();
+        ArrayList<String> lo = new ArrayList<>();
+        ArrayList<String> da = new ArrayList<>();
+        ArrayList<String> mo = new ArrayList<>();
+        ArrayList<String> yr = new ArrayList<>();
+        //new table madel for adding new rows into Table
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+
+        //model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
+
         Matcher m = p.matcher(RW.read());
+        //adds name first
         while (m.find()) {
-            N_TF.setText(m.group(1));
+            na.add(m.group(1));
+            // Table.getModel().setValueAt(m.group(1), 0, 0);
+        }
+        // adds Location second
+        p = Pattern.compile("\nLoc:->(.*)exit@");
+        m = p.matcher(RW.read());
+
+        while (m.find()) {
+            lo.add(m.group(1));
+            //Table.getModel().setValueAt(m.group(1), 0, 1);
+        }
+        // adds Month third
+        p = Pattern.compile("\nM:->(.*)exit@");
+        m = p.matcher(RW.read());
+
+        while (m.find()) {
+            mo.add(m.group(1));
+            // Table.getModel().setValueAt(m.group(1), 0, 2);
+        }
+        // adds Day forth
+        p = Pattern.compile("\nD:->(.*)exit@");
+        m = p.matcher(RW.read());
+
+        while (m.find()) {
+            da.add(m.group(1));
+            // Table.getModel().setValueAt(m.group(1), 0, 3);
+        }
+        // adds Year fith
+        p = Pattern.compile("\nY:->(.*)exit@");
+        m = p.matcher(RW.read());
+
+        while (m.find()) {
+            yr.add(m.group(1));
+            // Table.getModel().setValueAt(m.group(1), 0, 4);
+        }
+        for (int i = 0; i < na.size(); i++) {
+
+            model.addRow(new Object[]{na.get(i), lo.get(i), mo.get(i), da.get(i), yr.get(i)});
+
         }
     }
 
@@ -111,12 +165,20 @@ public class Calendars extends javax.swing.JFrame {
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Event Name", "Event Location", "Month", "Date", "Year"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(Table);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -272,13 +334,14 @@ public class Calendars extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     // if checkDate returns true than it will add the text box info to list of events
+    //after ading it to the list of events it will write each event in the list to the text file
+    // if an invalid date is entered than a text box is shown
     private void addeventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addeventActionPerformed
-        upDate();
-        //  N_TF.setText(RW.read());
+
         if (checkDate(D_TF.getText(), M_TF.getText(), Y_TF.getText())) {
 
-            list.add(new Event(N_TF.toString(), L_TF.getText(), M_TF.getText(),
+            list.add(new Event(N_TF.getText(), L_TF.getText(), M_TF.getText(),
                     D_TF.getText(), Y_TF.getText()));
 
             list.stream().forEach((i) -> {
@@ -287,28 +350,29 @@ public class Calendars extends javax.swing.JFrame {
         } else {
             RW.popup("Please enter a valid date");
         }
+        upDate();
     }//GEN-LAST:event_addeventActionPerformed
-/**
- * 
- * @param evt is what the user tries to put in the text box. when passed to intOnly()
- *            only integers are aloud to be put into the text box
- */
+    /**
+     *
+     * @param evt is what the user tries to put in the text box. when passed to
+     * intOnly() only integers are aloud to be put into the text box
+     */
     private void M_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_M_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_M_TFKeyTyped
-/**
- * 
- * @param evt is what the user tries to put in the text box. when passed to intOnly()
- *            only integers are aloud to be put into the text box
- */
+    /**
+     *
+     * @param evt is what the user tries to put in the text box. when passed to
+     * intOnly() only integers are aloud to be put into the text box
+     */
     private void D_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_D_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_D_TFKeyTyped
-/**
- * 
- * @param evt is what the user tries to put in the text box. when passed to intOnly()
- *            only integers are aloud to be put into the text box
- */
+    /**
+     *
+     * @param evt is what the user tries to put in the text box. when passed to
+     * intOnly() only integers are aloud to be put into the text box
+     */
     private void Y_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Y_TFKeyTyped
         intOnly(evt);
     }//GEN-LAST:event_Y_TFKeyTyped
@@ -327,16 +391,21 @@ public class Calendars extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calendar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calendar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calendar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calendar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calendar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calendar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calendar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calendar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

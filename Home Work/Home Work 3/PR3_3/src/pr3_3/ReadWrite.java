@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class ReadWrite {
 
     private File f;
-    private Boolean bool = false;
+    private Boolean bool = true;
 
     ReadWrite() {
         f = new File("c:\\users\\pete\\documents\\mover.scr");
