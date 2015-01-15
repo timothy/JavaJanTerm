@@ -55,8 +55,8 @@ public class FileIO {
             String line;
             while ((line = rdr.readLine()) != null) {
                 s += line;
-                rdr.close();
             }
+            rdr.close();
             return s;
         } catch (Exception ex) {
             write("Login->" + name + "500?\">");

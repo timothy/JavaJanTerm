@@ -31,7 +31,7 @@ public class Calendars extends javax.swing.JFrame {
     final static String DATE_FORMAT = "dd-MM-yyyy";
     private DateFormat df;
 
-    private Pattern p = Pattern.compile("name:->(.*)exit@");
+    private Pattern p = Pattern.compile("name:->(.*?)exit@");
 //    private Pattern locP = Pattern.compile("\nLoc:->(.*)exit@");
 //    private Pattern monthP = Pattern.compile("\nM:->(.*)exit@");
 //    private Pattern dayP = Pattern.compile("\nD:->(.*)exit@");
@@ -86,7 +86,6 @@ public class Calendars extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
 
         //model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
-
         Matcher m = p.matcher(RW.read());
         //adds name first
         while (m.find()) {
@@ -94,7 +93,7 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 0);
         }
         // adds Location second
-        p = Pattern.compile("\nLoc:->(.*)exit@");
+        p = Pattern.compile("Loc:->(.*?)exit@");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -102,7 +101,7 @@ public class Calendars extends javax.swing.JFrame {
             //Table.getModel().setValueAt(m.group(1), 0, 1);
         }
         // adds Month third
-        p = Pattern.compile("\nM:->(.*)exit@");
+        p = Pattern.compile("M:->(.*?)exit@");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -110,7 +109,7 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 2);
         }
         // adds Day forth
-        p = Pattern.compile("\nD:->(.*)exit@");
+        p = Pattern.compile("D:->(.*?)exit@");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -118,14 +117,14 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 3);
         }
         // adds Year fith
-        p = Pattern.compile("\nY:->(.*)exit@");
+        p = Pattern.compile("Y:->(.*?)exit@");
         m = p.matcher(RW.read());
 
         while (m.find()) {
             yr.add(m.group(1));
             // Table.getModel().setValueAt(m.group(1), 0, 4);
         }
-        for (int i = 0; i < na.size(); i++) {
+        for (int i = 0; i < na.size() && i < lo.size() && i < mo.size() && i < da.size() && i < yr.size(); i++) {
 
             model.addRow(new Object[]{na.get(i), lo.get(i), mo.get(i), da.get(i), yr.get(i)});
 
@@ -160,6 +159,7 @@ public class Calendars extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         label1.setText("Event Calendar");
 

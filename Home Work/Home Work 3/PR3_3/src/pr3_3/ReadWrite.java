@@ -33,10 +33,11 @@ public class ReadWrite {
     ReadWrite(String s) {
         f = new File(s);
     }
-/**
- * 
- * @return this will return the entire text file as a string
- */
+
+    /**
+     *
+     * @return this will return the entire text file as a string
+     */
     String read() {
         String s = "";
         try {
@@ -44,11 +45,11 @@ public class ReadWrite {
             String line;
             while ((line = rdr.readLine()) != null) {
                 s += line;
-                rdr.close();
             }
+            rdr.close();
             return s;
         } catch (Exception ex) {
-            popup("an error with reading the file happend");
+            popup("an error with reading the file happend\n" + ex.toString());
         }
         return s;
     }
@@ -66,10 +67,12 @@ public class ReadWrite {
             popup("Writing error");
         }
     }
-/**
- * 
- * @param e pass in any Event object and it will be stored in the text document in the correct format
- */
+
+    /**
+     *
+     * @param e pass in any Event object and it will be stored in the text
+     * document in the correct format
+     */
     void write(Event e) {
         try {
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, this.bool));
@@ -83,18 +86,22 @@ public class ReadWrite {
             popup("Writing error");
         }
     }
-/**
- * 
- * @param pop is the string that will show up in a pop up window when the method is called
- */
+
+    /**
+     *
+     * @param pop is the string that will show up in a pop up window when the
+     * method is called
+     */
     void popup(String pop) {
         JFrame frame = new JFrame("");
         JOptionPane.showMessageDialog(frame, pop);
     }
-/**
- * 
- * @param b set the write function to either append on the end of the text doc or rewrite the whole thing
- */
+
+    /**
+     *
+     * @param b set the write function to either append on the end of the text
+     * doc or rewrite the whole thing
+     */
     void append(Boolean b) {
         this.bool = b;
     }
