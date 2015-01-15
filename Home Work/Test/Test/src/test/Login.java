@@ -20,12 +20,19 @@ public class Login {
 
     Login() {
     }
-
+/**
+ * 
+ * @param s sets login
+ */
     Login(String s) {
         this.login = s;
     }
 
-    
+   /**
+    * 
+    * @param s pass the user name in order to find that users starting balance
+    * @return the users starting balance according to the saved text
+    */ 
     int getStartAmount(String s) {
         if(f.read(s)== ""){
         f.write("Login->" + s + "500?\">");
@@ -44,7 +51,11 @@ public class Login {
         }
         return 500;
     }
-    
+    /**
+     * 
+     * @param s user name
+     * @param d the remaining amount of money the user has
+     */
        void setStartAmount(String s, double d) {
         if(f.read(s)== ""){
         f.write("Login->" + s + "500?\">");

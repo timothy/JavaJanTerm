@@ -23,7 +23,9 @@ public class DiceGUI extends javax.swing.JFrame {
         initComponents();
         groupButton();
     }
-
+/**
+ * @see groupButton() adds the radio buttons to a Button group
+ */
     private void groupButton() {
         ButtonGroup bg1 = new ButtonGroup();
 

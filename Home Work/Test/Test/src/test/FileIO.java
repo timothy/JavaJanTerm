@@ -43,7 +43,11 @@ public class FileIO {
     void setFileLocation(String s) {
         f = new File(s);
     }
-
+/**
+ * 
+ * @param name takes the user name if an error happens than it assumes there is no user by that name and returns a new user
+ * @return a string with the entire text file in it
+ */
     String read(String name) {
         String s = "";
         try {
@@ -74,12 +78,18 @@ public class FileIO {
             popup("Writing error");
         }
     }
-
+/**
+ * 
+ * @param pop the message you want to be displayed
+ */
     void popup(String pop) {
         JFrame frame = new JFrame("");
         JOptionPane.showMessageDialog(frame, pop);
     }
-
+/**
+ * 
+ * @param b changes the write method to either over write text doc or append to it
+ */
     void append(Boolean b) {
         this.bool = b;
     }
