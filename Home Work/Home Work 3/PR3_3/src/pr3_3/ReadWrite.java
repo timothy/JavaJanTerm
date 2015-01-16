@@ -76,11 +76,12 @@ public class ReadWrite {
     void write(Event e) {
         try {
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, this.bool));
-            wrtr.write("name:->" + e.getName() + "exit@"
-                    + "\nLoc:->" + e.getLocation() + "exit@"
-                    + "\nM:->" + String.valueOf(e.getMonth()) + "exit@"
-                    + "\nD:->" + String.valueOf(e.getDay()) + "exit@"
-                    + "\nY:->" + String.valueOf(e.getYear()) + "exit@" + "\n");
+            wrtr.write("name:->" + e.getName() + "exit@N "
+                    + "Loc:->" + e.getLocation() + "exit@L "
+                    + "M:->" + String.valueOf(e.getMonth()) + "exit@M "
+                    + "D:->" + String.valueOf(e.getDay()) + "exit@D "
+                    + "Y:->" + String.valueOf(e.getYear()) + "exit@Y ");
+            wrtr.newLine();
             wrtr.close();
         } catch (Exception ex) {
             popup("Writing error");

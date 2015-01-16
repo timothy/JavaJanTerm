@@ -30,17 +30,15 @@ public class Calendars extends javax.swing.JFrame {
     private ReadWrite RW = new ReadWrite("C:\\Users\\tbradford16\\Desktop\\tim.txt");
     final static String DATE_FORMAT = "dd-MM-yyyy";
     private DateFormat df;
-
-    private Pattern p = Pattern.compile("name:->(.*?)exit@");
-//    private Pattern locP = Pattern.compile("\nLoc:->(.*)exit@");
-//    private Pattern monthP = Pattern.compile("\nM:->(.*)exit@");
-//    private Pattern dayP = Pattern.compile("\nD:->(.*)exit@");
-//    private Pattern yearP = Pattern.compile("\nY:->(.*)exit@");
-
+    private Pattern p = Pattern.compile("name:->(.*?)exit@N");
+/**
+ * @see constructer
+ */
     public Calendars() {
         initComponents();
         df = new SimpleDateFormat(this.DATE_FORMAT);
         Table.setAutoCreateRowSorter(true);
+        upDate();
     }
 
     /**
@@ -84,7 +82,9 @@ public class Calendars extends javax.swing.JFrame {
         ArrayList<String> yr = new ArrayList<>();
         //new table madel for adding new rows into Table
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
-
+        for (int r = 0; r < model.getRowCount(); r++) {
+            model.removeRow(r);
+        }
         //model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
         Matcher m = p.matcher(RW.read());
         //adds name first
@@ -93,7 +93,7 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 0);
         }
         // adds Location second
-        p = Pattern.compile("Loc:->(.*?)exit@");
+        p = Pattern.compile("Loc:->(.*?)exit@L");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -101,7 +101,7 @@ public class Calendars extends javax.swing.JFrame {
             //Table.getModel().setValueAt(m.group(1), 0, 1);
         }
         // adds Month third
-        p = Pattern.compile("M:->(.*?)exit@");
+        p = Pattern.compile("M:->(.*?)exit@M");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -109,7 +109,7 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 2);
         }
         // adds Day forth
-        p = Pattern.compile("D:->(.*?)exit@");
+        p = Pattern.compile("D:->(.*?)exit@D");
         m = p.matcher(RW.read());
 
         while (m.find()) {
@@ -117,17 +117,17 @@ public class Calendars extends javax.swing.JFrame {
             // Table.getModel().setValueAt(m.group(1), 0, 3);
         }
         // adds Year fith
-        p = Pattern.compile("Y:->(.*?)exit@");
+        p = Pattern.compile("Y:->(.*?)exit@Y");
         m = p.matcher(RW.read());
 
         while (m.find()) {
             yr.add(m.group(1));
             // Table.getModel().setValueAt(m.group(1), 0, 4);
         }
+        p = Pattern.compile("name:->(.*?)exit@N");
         for (int i = 0; i < na.size() && i < lo.size() && i < mo.size() && i < da.size() && i < yr.size(); i++) {
 
             model.addRow(new Object[]{na.get(i), lo.get(i), mo.get(i), da.get(i), yr.get(i)});
-
         }
     }
 
@@ -185,20 +185,18 @@ public class Calendars extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(186, 186, 186))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Calendar Info", jPanel1);
@@ -341,12 +339,14 @@ public class Calendars extends javax.swing.JFrame {
 
         if (checkDate(D_TF.getText(), M_TF.getText(), Y_TF.getText())) {
 
-            list.add(new Event(N_TF.getText(), L_TF.getText(), M_TF.getText(),
+//            list.add(new Event(N_TF.getText(), L_TF.getText(), M_TF.getText(),
+//                    D_TF.getText(), Y_TF.getText()));
+            RW.write(new Event(N_TF.getText(), L_TF.getText(), M_TF.getText(),
                     D_TF.getText(), Y_TF.getText()));
 
-            list.stream().forEach((i) -> {
-                RW.write(i);
-            });//N_TF.setText(RW.read());
+//            list.stream().forEach((i) -> {
+//                RW.write(i);
+//            });//N_TF.setText(RW.read());
         } else {
             RW.popup("Please enter a valid date");
         }
