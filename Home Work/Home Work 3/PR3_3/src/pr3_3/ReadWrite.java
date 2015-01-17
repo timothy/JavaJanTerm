@@ -49,7 +49,7 @@ public class ReadWrite {
             rdr.close();
             return s;
         } catch (Exception ex) {
-            popup("an error with reading the file happend\n" + ex.toString());
+           // popup("an error with reading the file happend\n ");
         }
         return s;
     }

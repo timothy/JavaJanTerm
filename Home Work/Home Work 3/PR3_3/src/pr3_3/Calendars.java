@@ -27,7 +27,7 @@ public class Calendars extends javax.swing.JFrame {
     // private Calendar cal = Calendar.getInstance();
     private ArrayList<Event> list = new ArrayList<Event>();
 
-    private ReadWrite RW = new ReadWrite("C:\\Users\\tbradford16\\Desktop\\tim.txt");
+    private ReadWrite RW = new ReadWrite("CalendarSave");
     final static String DATE_FORMAT = "dd-MM-yyyy";
     private DateFormat df;
     private Pattern p = Pattern.compile("name:->(.*?)exit@N");
@@ -129,6 +129,7 @@ public class Calendars extends javax.swing.JFrame {
 
             model.addRow(new Object[]{na.get(i), lo.get(i), mo.get(i), da.get(i), yr.get(i)});
         }
+        
     }
 
     /**
