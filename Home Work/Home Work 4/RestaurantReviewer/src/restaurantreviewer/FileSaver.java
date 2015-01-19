@@ -10,7 +10,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 // include name, address, the user’s notes, and a 5-star rating.
@@ -21,7 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class FileSaver {
 
-    private Pattern p;
     private File f;
     private boolean bool = true;
 
