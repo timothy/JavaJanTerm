@@ -16,7 +16,56 @@ public class ReviewGUI extends javax.swing.JFrame {
      */
     public ReviewGUI() {
         initComponents();
-        
+
+    }
+
+    void star(int i) {
+
+        switch (i) {
+            case 1:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                break;
+            case 2:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                break;
+            case 3:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                break;
+            case 4:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                break;
+            case 5:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                break;
+
+            default:
+                this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                break;
+        }
     }
 
     /**
@@ -42,6 +91,11 @@ public class ReviewGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        star3 = new javax.swing.JButton();
+        star1 = new javax.swing.JButton();
+        star4 = new javax.swing.JButton();
+        star2 = new javax.swing.JButton();
+        star5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,48 +135,104 @@ public class ReviewGUI extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("My Notes");
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
+        star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
+        star3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                star3ActionPerformed(evt);
+            }
+        });
+
+        star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
+        star1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                star1ActionPerformed(evt);
+            }
+        });
+
+        star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
+        star4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                star4ActionPerformed(evt);
+            }
+        });
+
+        star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
+        star2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                star2ActionPerformed(evt);
+            }
+        });
+
+        star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
+        star5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                star5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(160, 160, 160)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(star1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(star2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(star3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(star4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addGap(51, 51, 51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(star3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(star2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(star1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(star4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Add", jPanel2);
@@ -140,6 +250,26 @@ public class ReviewGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void star3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star3ActionPerformed
+        star(3);
+    }//GEN-LAST:event_star3ActionPerformed
+
+    private void star1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star1ActionPerformed
+        star(1);
+    }//GEN-LAST:event_star1ActionPerformed
+
+    private void star4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star4ActionPerformed
+        star(4);
+    }//GEN-LAST:event_star4ActionPerformed
+
+    private void star2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star2ActionPerformed
+        star(2);
+    }//GEN-LAST:event_star2ActionPerformed
+
+    private void star5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star5ActionPerformed
+        star(5);
+    }//GEN-LAST:event_star5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,5 +321,10 @@ public class ReviewGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton star1;
+    private javax.swing.JButton star2;
+    private javax.swing.JButton star3;
+    private javax.swing.JButton star4;
+    private javax.swing.JButton star5;
     // End of variables declaration//GEN-END:variables
 }
