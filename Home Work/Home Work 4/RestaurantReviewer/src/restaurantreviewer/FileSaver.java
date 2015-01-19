@@ -26,17 +26,22 @@ public class FileSaver {
     private boolean bool = true;
 
     FileSaver() {
-        f = new File("myfile");
+        f = new File("myfile.txt");
     }
 
     void saver(Reviewer r) {
         try {
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(f, this.bool));
-
             wrtr.write("Restaurant's Name:" + r.getName());
+            wrtr.newLine();
             wrtr.write("Address:" + r.getAddress());
+            wrtr.newLine();
             wrtr.write("My Notes:" + r.getNotes());
+            wrtr.newLine();
             wrtr.write("My Rating:" + r.getRating());
+            wrtr.newLine();
+            wrtr.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                    + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             wrtr.newLine();
             wrtr.close();
         } catch (Exception ex) {
@@ -50,7 +55,7 @@ public class FileSaver {
             BufferedReader rdr = new BufferedReader(new FileReader(this.f));
             String line;
             while ((line = rdr.readLine()) != null) {
-                s += line;
+                s += line+"\n";
             }
             rdr.close();
             return s;

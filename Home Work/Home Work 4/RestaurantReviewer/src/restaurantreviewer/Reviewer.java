@@ -12,10 +12,10 @@ package restaurantreviewer;
 public class Reviewer {
 
     // include name, address, the user’s notes, and a 5-star rating.
-    String name;
-    String address;
-    String notes;
-    String rating;
+    private String name;
+    private String address;
+    private String notes;
+    private String rating;
 
     Reviewer() {
         name = "";

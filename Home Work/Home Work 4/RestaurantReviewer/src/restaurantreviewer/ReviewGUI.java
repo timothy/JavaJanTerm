@@ -14,9 +14,11 @@ public class ReviewGUI extends javax.swing.JFrame {
     /**
      * Creates new form ReviewGUI
      */
+    FileSaver fs = new FileSaver();
+    Reviewer r = new Reviewer();
+
     public ReviewGUI() {
         initComponents();
-
     }
 
     void star(int i) {
@@ -28,6 +30,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                r.setRating("One Star");
                 break;
             case 2:
                 this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
@@ -35,6 +38,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                r.setRating("Two Stars");
                 break;
             case 3:
                 this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
@@ -42,6 +46,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                r.setRating("Three Stars");
                 break;
             case 4:
                 this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
@@ -49,6 +54,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                r.setRating("Four Stars");
                 break;
             case 5:
                 this.star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
@@ -56,6 +62,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/G_star.png")));
+                r.setRating("Five Stars");
                 break;
 
             default:
@@ -64,6 +71,7 @@ public class ReviewGUI extends javax.swing.JFrame {
                 this.star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
                 this.star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
                 this.star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png")));
+                r.setRating("Swich statment error");
                 break;
         }
     }
@@ -80,28 +88,29 @@ public class ReviewGUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Main_TA = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Name_TF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        Adress_TA = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        Notes_TA = new javax.swing.JTextArea();
         star3 = new javax.swing.JButton();
         star1 = new javax.swing.JButton();
         star4 = new javax.swing.JButton();
         star2 = new javax.swing.JButton();
         star5 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Main_TA.setColumns(20);
+        Main_TA.setRows(5);
+        jScrollPane1.setViewportView(Main_TA);
 
         jLabel1.setFont(new java.awt.Font("Forte", 0, 36)); // NOI18N
         jLabel1.setText("My Restaurant Review's");
@@ -131,16 +140,16 @@ public class ReviewGUI extends javax.swing.JFrame {
 
         jLabel3.setText("Restaurant's Address:");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        Adress_TA.setColumns(20);
+        Adress_TA.setRows(5);
+        jScrollPane2.setViewportView(Adress_TA);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("My Notes");
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        Notes_TA.setColumns(20);
+        Notes_TA.setRows(5);
+        jScrollPane3.setViewportView(Notes_TA);
 
         star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurantreviewer/E_star.png"))); // NOI18N
         star3.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +186,14 @@ public class ReviewGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -196,14 +213,16 @@ public class ReviewGUI extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Name_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(star4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addComponent(jLabel4)))
@@ -218,17 +237,22 @@ public class ReviewGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Name_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(star3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(star2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(star1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(star4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(star3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(star2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(star1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(star4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(star5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(3, 3, 3))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
@@ -271,6 +295,14 @@ public class ReviewGUI extends javax.swing.JFrame {
         star(5);
     }//GEN-LAST:event_star5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        r.setAddress(this.Adress_TA.getText());
+        r.setName(this.Name_TF.getText());
+        r.setNotes(this.Notes_TA.getText());
+        fs.saver(r);
+        this.Main_TA.setText(fs.reader());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -307,6 +339,11 @@ public class ReviewGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Adress_TA;
+    private javax.swing.JTextArea Main_TA;
+    private javax.swing.JTextField Name_TF;
+    private javax.swing.JTextArea Notes_TA;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -317,10 +354,6 @@ public class ReviewGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton star1;
     private javax.swing.JButton star2;
     private javax.swing.JButton star3;
