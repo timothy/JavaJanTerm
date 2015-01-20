@@ -41,16 +41,13 @@ public class MainActivity extends Activity {
 
     private void coinFlip(){
         ImageView iv = (ImageView)this.findViewById(R.id.imageView);
-        Drawable s = getResources().getDrawable(R.drawable.sea_two);
-        Drawable p = getResources().getDrawable(R.drawable.patriot_three);
         Random r = new Random();
 
         if (r.nextBoolean()){
-            iv.setImageDrawable(s);
+            iv.setImageDrawable(getResources().getDrawable(R.drawable.sea_two));
         }else{
-            iv.setImageDrawable(p);
+            iv.setImageDrawable(getResources().getDrawable(R.drawable.sea_two));
         }
-
 
     }
 
