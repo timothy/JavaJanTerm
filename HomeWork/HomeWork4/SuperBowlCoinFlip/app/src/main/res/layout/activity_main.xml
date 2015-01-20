@@ -9,7 +9,7 @@
     tools:context="edu.whitworth.superbowlcoinflip.app.MainActivity">
 
     <Button
-        android:onClick="CoinFlip"
+        android:onClick="coinFlip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Coin Flip"

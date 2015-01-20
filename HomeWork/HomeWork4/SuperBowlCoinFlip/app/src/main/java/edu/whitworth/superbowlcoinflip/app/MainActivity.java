@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Random;
@@ -12,10 +13,12 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -39,16 +42,15 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void coinFlip(){
-        ImageView iv = (ImageView)this.findViewById(R.id.imageView);
+   public void coinFlip(View v){
+       ImageView iv = (ImageView)this.findViewById(R.id.imageView);
         Random r = new Random();
 
         if (r.nextBoolean()){
             iv.setImageDrawable(getResources().getDrawable(R.drawable.sea_two));
         }else{
-            iv.setImageDrawable(getResources().getDrawable(R.drawable.sea_two));
+            iv.setImageDrawable(getResources().getDrawable(R.drawable.patriot_three));
         }
-
     }
 
 }
