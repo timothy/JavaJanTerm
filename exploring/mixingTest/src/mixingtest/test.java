@@ -11,15 +11,20 @@ package mixingtest;
  */
 public class test extends javax.swing.JFrame {
 
+   private MixingTest t = new MixingTest();
+
     /**
      * Creates new form test
      */
     public test() {
         initComponents();
+        comboPop();
     }
-void comboPop(){
 
-}
+    void comboPop() {
+        combo.addItem("I want to try\nnew lines\nto see if it works");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,8 +46,8 @@ void comboPop(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -25,8 +25,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-              <Component id="combo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="186" max="32767" attributes="0"/>
+              <Component id="combo" min="-2" pref="115" max="-2" attributes="0"/>
+              <EmptySpace pref="127" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -34,6 +34,18 @@ public class MixingTest {
             System.out.println("the info object does not represent a mixer installed on the system");
         }
     }
+        static String printAllMixerNamesToString() {
+        try {
+            for (Mixer.Info info : AudioSystem.getMixerInfo()) {
+                return info.getName();
+            }
+        } catch (SecurityException s) {
+            System.out.println("the requested mixer is unavailable because of security restrictions");
+        } catch (IllegalArgumentException ill) {
+            System.out.println("the info object does not represent a mixer installed on the system");
+        }
+        
+    }
 
     /**
      * @param args the command line arguments
