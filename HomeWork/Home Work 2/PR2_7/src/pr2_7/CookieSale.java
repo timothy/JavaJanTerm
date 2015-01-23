@@ -11,12 +11,12 @@ package pr2_7;
  */
 public class CookieSale {
 
-    final int ThinMints = 3;
-    final int Samoas = 4;
-    final int ChocolateChip = 5;
-    int totalMint;
-    int totalSamoans;
-    int tatalChip;
+    private final int ThinMints = 3;
+    private final int Samoas = 4;
+    private final int ChocolateChip = 5;
+    private int totalMint;
+    private int totalSamoans;
+    private int tatalChip;
 
     CookieSale() {
         this.totalMint = 0;
@@ -33,7 +33,7 @@ public class CookieSale {
             case "ChocolateChip":
                 this.tatalChip += ChocolateChip;
             default:
-               // System.err.print(s + " is not valid");
+            // System.err.print(s + " is not valid");
         }
     }
 

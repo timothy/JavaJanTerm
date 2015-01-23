@@ -23,10 +23,15 @@ public class MixingTest {
 //    }
 //    return null;
 //}
-    
     static void printAllMixerNames() {
-        for (Mixer.Info info : AudioSystem.getMixerInfo()) {
-            System.out.println(info.getName());
+        try {
+            for (Mixer.Info info : AudioSystem.getMixerInfo()) {
+                System.out.println(info.getName());
+            }
+        } catch (SecurityException s) {
+            System.out.println("the requested mixer is unavailable because of security restrictions");
+        } catch (IllegalArgumentException ill) {
+            System.out.println("the info object does not represent a mixer installed on the system");
         }
     }
 
@@ -34,9 +39,12 @@ public class MixingTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Mixer.Info[] getMixerInfo();
+        printAllMixerNames();
 
-
+        
+        
+        
+        
     }
 }
 //https://docs.oracle.com/javase/8/docs/api/javax/sound/sampled/AudioSystem.html#getMixer-javax.sound.sampled.Mixer.Info-
