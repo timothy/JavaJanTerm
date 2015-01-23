@@ -5,6 +5,7 @@
  */
 package mixingtest;
 
+import java.util.Vector;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Mixer;
 //import javax.sound.sampled.Mixer.Info;
@@ -14,6 +15,7 @@ import javax.sound.sampled.Mixer;
  * @author tbrad_000
  */
 public class MixingTest {
+    
 
 //    static Mixer getMixerByName(String toFind) {
 //    for(Mixer.Info info : AudioSystem.getMixerInfo()) {
@@ -34,25 +36,35 @@ public class MixingTest {
             System.out.println("the info object does not represent a mixer installed on the system");
         }
     }
-        static String printAllMixerNamesToString() {
+    
+    Vector<Mixer.Info> v = new Vector();
+    
+        public Vector<Mixer.Info> printAllMixerNamesToVector() {
+            String s = "";
         try {
             for (Mixer.Info info : AudioSystem.getMixerInfo()) {
-                return info.getName();
+                v.add(info);
+                s += info.getName() + "\n";
             }
-        } catch (SecurityException s) {
+            return v;
+        } catch (SecurityException se) {
             System.out.println("the requested mixer is unavailable because of security restrictions");
         } catch (IllegalArgumentException ill) {
             System.out.println("the info object does not represent a mixer installed on the system");
         }
-        
+        return v;
     }
 
     /**
      * @param args the command line arguments
      */
+        
     public static void main(String[] args) {
         printAllMixerNames();
 
+       
+     
+       
         
         
         

@@ -5,13 +5,18 @@
  */
 package mixingtest;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.Line;
+
 /**
  *
  * @author tbradford16
  */
 public class test extends javax.swing.JFrame {
 
-   private MixingTest t = new MixingTest();
+    private MixingTest t = new MixingTest();
 
     /**
      * Creates new form test
@@ -22,8 +27,26 @@ public class test extends javax.swing.JFrame {
     }
 
     void comboPop() {
-        combo.addItem("I want to try\nnew lines\nto see if it works");
+        AudioSystem m;
+        combo.removeAllItems();
+        combo.addItem(t.printAllMixerNamesToVector().get(1).getName());
+       // m.Mixer.getMixer(t.printAllMixerNamesToVector().get(1));
     }
+
+    /**
+     * How can I obtain the formats supported by a mixer 
+     */
+//    public void doThings() {
+//        Line.Info[] infos = AudioSystem.getSourceLineInfo();
+//// or:
+//// Line.Info[] infos = AudioSystem.getTargetLineInfo();
+//        for (int i = 0; i < infos.length; i++) {
+//            if (infos[i] instanceof DataLine.Info) {
+//                DataLine.Info dataLineInfo = (DataLine.Info) infos[i];
+//                AudioFormat[] supportedFormats = dataLineInfo.getFormats();
+//            }
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,30 +58,48 @@ public class test extends javax.swing.JFrame {
     private void initComponents() {
 
         combo = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AudioL = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboActionPerformed(evt);
+            }
+        });
+
+        AudioL.setColumns(20);
+        AudioL.setRows(5);
+        jScrollPane1.setViewportView(AudioL);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(combo, 0, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+        if (combo.getSelectedIndex() == 0) {
+            this.AudioL.setText(t.printAllMixerNamesToVector().get(1).getDescription());
+        }
+    }//GEN-LAST:event_comboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,6 +137,8 @@ public class test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AudioL;
     private javax.swing.JComboBox combo;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
