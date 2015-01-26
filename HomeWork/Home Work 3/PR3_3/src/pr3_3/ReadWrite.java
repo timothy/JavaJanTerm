@@ -23,7 +23,8 @@ public class ReadWrite {
     private Boolean bool = true;
 
     ReadWrite() {
-        f = new File("c:\\users\\pete\\documents\\mover.scr");
+        //PT -- mover.scr?
+        f = new File("mover.scr");
     }
 
     /**

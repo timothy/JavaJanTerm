@@ -27,8 +27,10 @@ public class Ellipse extends Shape {
     private int A = 0;
     private int B = 0;
 
+    //need javadoc. -2
     public Ellipse(int r1, int r2) {
         try {
+            //PT -- why is the last predicate there?
             if (r1 < 0 || r2 < 0 || r1 > r2*3) {
                 throw new EllipseException();
             } else {

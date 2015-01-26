@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
  *
  * @author tbradford16
  */
+//PT -- I know the table sorted for you, but I needed you to use the comparator
+//     class that we talked about. -5
+//PT -- duplicate events?
 public class Event {
 
     private String name;

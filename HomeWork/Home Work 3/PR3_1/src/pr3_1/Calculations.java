@@ -18,6 +18,9 @@ public class Calculations {
 //    public Calculations() {
 //    }
 
+    //PT -- if max, min, and average are static, then the user doesn't have to create a Calculations object
+    //PT -- need javadoc. -2
+    //PT -- if the parameter is List<Integer>, it can work with many objects, not just ArrayList
     public int minI(ArrayList<Integer> l) {
         int min = Integer.MAX_VALUE;
         for (int d : l) 
